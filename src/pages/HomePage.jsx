@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function HomePage() {
   const navigate = useNavigate()
   return (
-    <div className='flex flex-col justify-between align-top w-full'>
+    <div className='flex flex-col justify-between items-center w-full'>
       <img
         src="/images/ui/topSquares.png"
         alt="top Square"  
