@@ -9,6 +9,10 @@ import Third from '../../components/parts/Third';
 import Forth from '../../components/parts/Forth';
 import Fifth from '../../components/parts/Fifth';
 import Six from '../../components/parts/Six';
+import Seven from '../../components/parts/Seven';
+import Eight from '../../components/parts/Eight';
+import Nine from '../../components/parts/Nine';
+import Ten from '../../components/parts/Ten';
 
 function CalculatorPage() {
   const [currentNumber, setCurrentNumber] = useState(1);
@@ -16,7 +20,7 @@ function CalculatorPage() {
 
   const handleChangeNumber = (delta) => {
     const newValue = currentNumber + delta;
-    if (newValue < 1 || newValue > 6) return;
+    if (newValue < 1 || newValue > 10) return;
 
     setAnimationDirection(delta > 0 ? 'right' : 'left');
     setTimeout(() => setAnimationDirection(''), 500); // Убираем класс анимации через 500ms
@@ -56,6 +60,22 @@ function CalculatorPage() {
         {
           currentNumber == 6 && 
             <Six/>
+        }
+        {
+          currentNumber == 7 && 
+            <Seven/>
+        }
+        {
+          currentNumber == 8 && 
+            <Eight/>
+        }
+        {
+          currentNumber == 9 && 
+            <Nine/>
+        }
+        {
+          currentNumber == 10 && 
+            <Ten/>
         }
       </div>
       <ControlButtons

@@ -46,7 +46,7 @@ function First() {
     <div className="flex flex-col justify-start items-center gap-5">
         <Title className='mt-[57px]'>Выберите бренд</Title>
 
-        <div className='flex flex-row justify-center items-start flex-wrap gap-2'>
+        <div className='flex flex-row justify-center items-start flex-wrap gap-2 w-[340px]'>
         {
             blocks.map((elem, index) => 
                 <div className="flex flex-col justify-center items-center gap-1 shadow-custom w-[108px] h-[67px] rounded-[10px] " key={index}>
