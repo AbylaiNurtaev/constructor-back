@@ -64,6 +64,7 @@ function Six() {
                </div>
                
                 ))}
+                
             </div>
         </div>
     );

@@ -27,7 +27,7 @@ useEffect(() => {
 
   return (
     <div className="flex flex-col justify-start items-center mb-5">
-        <Title className='mt-[57px]'>Выберите коллекцию</Title>
+        <Title className='mt-[57px]'>Выберите цвет</Title>
         <div className='flex flex-row justify-center items-start flex-wrap gap-2 mt-5 w-[340px]'>
         {   blocks ?
             blocks.map((elem, index) => 
