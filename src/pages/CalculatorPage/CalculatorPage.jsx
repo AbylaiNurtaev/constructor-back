@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 import ControlButtons from '../../components/ui/ControlButtons';
@@ -13,14 +13,29 @@ import Seven from '../../components/parts/Seven';
 import Eight from '../../components/parts/Eight';
 import Nine from '../../components/parts/Nine';
 import Ten from '../../components/parts/Ten';
+import { useFilters } from '../../context/FiltersContext';
+
 
 function CalculatorPage() {
   const [currentNumber, setCurrentNumber] = useState(1);
   const [animationDirection, setAnimationDirection] = useState('');
 
+  const { filters } = useFilters();
+
+  console.log('Текущий выбранный бренд:', filters);
+  useEffect(() => {
+    const page = localStorage.getItem('page')
+    if(+page == 5){
+      setCurrentNumber(5)
+    }
+    console.log(page);
+    
+  }, [])
+
+
   const handleChangeNumber = (delta) => {
     const newValue = currentNumber + delta;
-    if (newValue < 1 || newValue > 10) return;
+    if (newValue < 1 || newValue > 8) return;
 
     setAnimationDirection(delta > 0 ? 'right' : 'left');
     setTimeout(() => setAnimationDirection(''), 500); // Убираем класс анимации через 500ms
@@ -49,32 +64,32 @@ function CalculatorPage() {
           currentNumber == 3 && 
             <Third/>
         }
-        {
+        {/* {
           currentNumber == 4 && 
             <Forth/>
-        }
+        } */}
         {
-          currentNumber == 5 && 
+          currentNumber == 4 && 
             <Fifth/>
         }
         {
-          currentNumber == 6 && 
+          currentNumber == 5 && 
             <Six/>
         }
         {
-          currentNumber == 7 && 
+          currentNumber == 6 && 
             <Seven/>
         }
-        {
-          currentNumber == 8 && 
+        {/* {
+          currentNumber == 7 && 
             <Eight/>
-        }
+        } */}
         {
-          currentNumber == 9 && 
+          currentNumber == 7 && 
             <Nine/>
         }
         {
-          currentNumber == 10 && 
+          currentNumber == 8 && 
             <Ten/>
         }
       </div>

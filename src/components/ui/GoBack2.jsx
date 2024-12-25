@@ -7,16 +7,16 @@ function Goback2({ className }) {
 
   return (
     <div className={cn('flex flex-row justify-center items-center w-[340px] h-[45px] gap-[5px]', className)}>
-        <div onClick={() => navigate(-1)} className='shadow-custom flex justify-center items-center w-[64px] rounded-[10px] h-full bg-white'><img className='w-6' src="/images/icons/leftBtn.png" alt="" /></div>
         <div
-        onClick={() => navigate('/')}
+        onClick={() => navigate('/calculator')}
         className={cn(
-            'flex flex-row justify-center items-center w-[270px] h-[45px] rounded-[10px] shadow-custom bg-white gap-2'
+          'flex flex-row justify-center items-center w-[270px] h-[45px] rounded-[10px] shadow-custom bg-white gap-2'
         )}
         >
         <span className="text-gray font-light">Вернуться в меню</span>
         <img src="/images/icons/goback.svg" alt="Go back" />
         </div>
+        <div onClick={() => navigate('/card')} className='shadow-custom flex justify-center items-center w-[64px] rounded-[10px] h-full bg-white'><img className='w-6' src="/images/icons/Card.svg" alt="" /></div>
     </div>
   );
 }
