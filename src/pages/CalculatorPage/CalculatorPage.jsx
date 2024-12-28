@@ -53,16 +53,16 @@ function CalculatorPage() {
         {
           currentNumber == 1 && 
           <div className='fle flex-col justify-center items-center'>
-            <First/>
+            <First onNext={() => handleChangeNumber(1)}/>
           </div>
         }
         {
           currentNumber == 2 && 
-            <Second/>
+            <Second onNext={() => handleChangeNumber(1)}/>
         }
         {
           currentNumber == 3 && 
-            <Third/>
+            <Third onNext={() => handleChangeNumber(1)}/>
         }
         {/* {
           currentNumber == 4 && 
@@ -70,15 +70,15 @@ function CalculatorPage() {
         } */}
         {
           currentNumber == 4 && 
-            <Fifth/>
+            <Fifth onNext={() => handleChangeNumber(1)}/>
         }
         {
           currentNumber == 5 && 
-            <Six/>
+            <Six onNext={() => handleChangeNumber(1)}/>
         }
         {
           currentNumber == 6 && 
-            <Seven/>
+            <Seven onNext={() => handleChangeNumber(1)}/>
         }
         {/* {
           currentNumber == 7 && 
@@ -86,7 +86,7 @@ function CalculatorPage() {
         } */}
         {
           currentNumber == 7 && 
-            <Nine/>
+            <Nine onNext={() => handleChangeNumber(1)}/>
         }
         {
           currentNumber == 8 && 

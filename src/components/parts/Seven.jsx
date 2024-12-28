@@ -3,7 +3,7 @@ import Title from '../Title';
 import { useFilters } from '../../context/FiltersContext';
 import axios from '../../axios'
 
-function Seven() {
+function Seven({ onNext }) {
     const { filters, updateFilter } = useFilters();
 
     useEffect(() => {
@@ -31,6 +31,7 @@ function Seven() {
     
         // Обновляем фильтр с выбранным элементом
         updateFilter('element', elementName);
+        onNext()
     };
     
 

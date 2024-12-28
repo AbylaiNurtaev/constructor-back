@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../Title'
 import { useFilters } from '../../context/FiltersContext';
 import axios from '../../axios'
-function Fifth() {
+function Fifth({onNext}) {
 
   const [blocks, setBlocks] = useState()
 
@@ -23,6 +23,7 @@ useEffect(() => {
 
   const handleSelect = (brand) => {
     updateFilter('color', brand); // Обновляем выбранный бренд
+    onNext()
   };
 
   return (

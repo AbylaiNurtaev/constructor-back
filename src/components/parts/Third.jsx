@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../Title'
 import { useFilters } from '../../context/FiltersContext';
 
-function Third() {
+function Third({onNext}) {
 
   const { filters, updateFilter } = useFilters();
 
@@ -52,6 +52,7 @@ function Third() {
 
   const handleSelect = (brand) => {
     updateFilter('subType', brand); // Обновляем выбранный бренд
+    onNext()
   };
 
 

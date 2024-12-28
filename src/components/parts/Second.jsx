@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '../Title';
 import { useFilters } from '../../context/FiltersContext';
 
-function Second() {
+function Second({onNext}) {
     // Достаем фильтры и функцию обновления из контекста
     const { filters, updateFilter } = useFilters();
 
@@ -21,6 +21,7 @@ function Second() {
     // Обработка выбора опции
     const handleSelect = (option) => {
         updateFilter('type', option); // Обновляем фильтр в контексте
+        onNext()
     };
 
     return (
@@ -30,7 +31,7 @@ function Second() {
             
             {/* Список опций */}
             <div className="flex flex-col justify-center items-center gap-[10px] w-[330px] mt-5">
-                {options.map((option, index) => (
+                {filters.brand != "Onviz" ? options.map((option, index) => (
                     <div
                         key={index}
                         onClick={() => handleSelect(option)}
@@ -48,7 +49,26 @@ function Second() {
                     >
                         {option}
                     </div>
-                ))}
+                ) 
+            ): <>
+                    <div
+                        onClick={() => handleSelect("Электрокарнизы")}
+                        style={{
+                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                            backgroundColor: filters?.type === "Электрокарнизы" ? '#93C5FD' : '#FFFFFF', // Цвет фона
+                            color: filters?.type === "Электрокарнизы" ? '#000000' : '#333333',          // Цвет текста
+                            borderRadius: '10px',
+                            width: '100%',
+                            padding: '10px',
+                            paddingLeft: '10px',
+                            cursor: 'pointer',
+                            transition: 'background-color 0.3s ease' // Анимация смены цвета
+                        }}
+                    >
+                        Электрокарнизы
+                    </div>
+            </>
+            }
             </div>
         </div>
     );

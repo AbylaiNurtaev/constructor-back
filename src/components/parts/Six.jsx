@@ -4,7 +4,7 @@ import { useFilters } from '../../context/FiltersContext';
 import { useNavigate } from 'react-router-dom';
 import axios from '../../axios'
 
-function Six() {
+function Six({ onNext }) {
     const { filters, updateFilter } = useFilters();
     const navigate = useNavigate();
     const [files, setFiles] = useState()
@@ -28,6 +28,7 @@ function Six() {
 
     const handleSelect = (option) => {        
         updateFilter('document', option);
+        onNext()
     };
 
     return (
@@ -35,6 +36,7 @@ function Six() {
             <Title className="mt-[57px]">Выберите коллекцию</Title>
             <div className="flex flex-col justify-center items-center gap-[10px] w-[330px] mt-5">
                 {files && files.map((option, index) => (
+                    <div className='flex w-[100%] justify-between items-center'>
                    <div
                    key={index}
                    onClick={() => handleSelect(option?.title)}
@@ -42,7 +44,7 @@ function Six() {
                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                        backgroundColor: filters.document === option?.title ? '#93C5FD' : '#FFFFFF',
                        borderRadius: '10px',
-                       width: '100%',
+                       width: '83%',
                        padding: '10px',
                        paddingLeft: '10px',
                        paddingRight: '8px',
@@ -53,6 +55,8 @@ function Six() {
                    }}
                >
                    <span>{option?.title}</span>
+               </div>
+               <div className="w-[14%] flex justify-center items-center bg-white shadow-custom h-[45px] rounded-[10px]">
                    <img
                        onClick={() => {
                            localStorage.setItem('page', 5);
@@ -62,7 +66,7 @@ function Six() {
                        alt=""
                    />
                </div>
-               
+               </div>
                 ))}
                 
             </div>

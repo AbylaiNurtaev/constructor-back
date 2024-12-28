@@ -41,13 +41,21 @@ function Found() {
       .then((data) => {
         if (data) {
           setAllItems([
-            // Фильтруем элементы по типу и подтипу
-            ...data.filter(
-              (elem) => elem.type === filters?.type && elem.subType === filters?.subType && +elem.text >= filters.ot && +elem.text <= filters.do && elem?.colors?.includes(filters.color) && elem.files.includes(filters.document)
-            ),
-            // Добавляем те элементы, которые есть в additionalItems
-            ...data.filter((elem) => additionalItems.includes(elem.title))
+            // Фильтруем элементы по типу, подтипу и другим критериям
+            ...data.filter((elem) => {
+              const typeMatch = elem.type === filters?.type;
+              const subTypeMatch = elem.subType === filters?.subType;
+              const rangeMatch = (filters.ot ? +elem.text >= filters.ot : true) && (filters.do ? +elem.text <= filters.do : true);
+              const colorMatch = elem?.colors?.includes(filters.color);
+              const documentMatch = elem.files.includes(filters.document);
+          
+              return typeMatch && subTypeMatch && rangeMatch && colorMatch && documentMatch;
+            }),
+            // Добавляем элементы из additionalItems, исключая возможные дубли
+            ...data.filter((elem) => additionalItems.includes(elem.title) && 
+              !allItems.some((item) => item.title === elem.title))
           ]);
+          
         }
       });
   }, [filters]);

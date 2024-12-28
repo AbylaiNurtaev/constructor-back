@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '../Title';
 import { useFilters } from '../../context/FiltersContext';
 
-function First() {
+function First({onNext}) {
     const { filters, updateFilter } = useFilters();
 
     const blocks = [
@@ -17,6 +17,7 @@ function First() {
 
     const handleSelect = (brand) => {
         updateFilter('brand', brand); // Обновляем выбранный бренд
+        onNext()
     };
 
     return (

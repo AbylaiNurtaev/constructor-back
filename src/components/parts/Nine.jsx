@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Title from '../Title';
 import { useFilters } from '../../context/FiltersContext';
 
-function Nine() {
+function Nine({onNext}) {
     const { filters, updateFilter } = useFilters();
     const [value, setValue] = useState(filters.metr || '');
 
@@ -15,6 +15,7 @@ function Nine() {
     const handleOptionClick = (option) => {
         setValue(option);
         updateFilter('metr', option);
+        onNext()
     };
 
     const options = ['1,2', '2,2', '3,2', '4', '4,2'];
