@@ -17,6 +17,8 @@ function Six({ onNext }) {
         }
 
     })
+
+    localStorage.setItem('page', '1')
     
 
     const options = [

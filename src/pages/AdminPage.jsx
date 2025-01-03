@@ -117,7 +117,6 @@ function AdminPage() {
 
   return (
     <div className='flex flex-col justify-center items-center gap-4 mt-8'>
-      <button className='w-[200px] h-[40px] rounded-[10px] bg-orange-300 text-white font-black cursor-pointer' onClick={() => window.open('https://docs.google.com/spreadsheets/d/1-gCiIaM8YQPBwkh-kbkm1oGRb7nkdEmXcFC2kWnUeeg/edit?gid=0#gid=0')}>Ткани</button>
       {
         auth ? 
         <div className='flex flex-col justify-center items-start'>

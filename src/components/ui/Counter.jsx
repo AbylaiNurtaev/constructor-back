@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function Counter({ price, onPriceChange, onRemove, onCountChange, initialCounter = 1, isMetr }) {
+function Counter({ price, onPriceChange, onRemove, onCountChange, initialCounter = 1, isMetr, countity }) {
     const [counter, setCounter] = useState(initialCounter);
 
     // Обновляем цену и вызываем onCountChange при изменении counter
@@ -17,7 +17,7 @@ function Counter({ price, onPriceChange, onRemove, onCountChange, initialCounter
     }, [counter]);
 
     return (
-        <div className="flex justify-start items-center gap-[20px]">
+        <div className="flex flex-col justify-start items-start gap-[5px] mt-[10px]">
             <div
                 style={{ background: "rgba(41, 123, 255, 0.2)", borderRadius: "5px" }}
                 className="flex justify-center items-center gap-[10px] font-sans text-[13px] h-[35px] px-2.5"
@@ -29,7 +29,11 @@ function Counter({ price, onPriceChange, onRemove, onCountChange, initialCounter
                 >
                     -
                 </p>
-                <p className="bg-white rounded-[5px] text-black h-[30px] flex justify-center items-center px-[2.5px]">
+                {/* {
+                    isMetr &&
+                    <input onChange={() => setCounter((prev) => parseFloat((prev + 1).toFixed(1)))} type="number" className='w-5 h-[30px] rounded-[5px] flex justify-center items-center pl-[6px]' placeholder='1'/>
+                } */}
+                <p className="bg-white rounded-[5px] text-black h-[30px] flex justify-center items-center px-[2.5px] w-[50px]">
                     {counter} {isMetr ? "м." : "шт."}
                 </p>
                 <p

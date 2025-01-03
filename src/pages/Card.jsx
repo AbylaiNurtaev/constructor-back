@@ -87,7 +87,7 @@ function Card() {
               <p className="font-sans text-[13px]">{elem.par}</p>
             </div>
             <Counter
-              price={elem.text}
+              price={parseFloat(elem.text)}
               initialCounter={elem.count}
               onPriceChange={(newPrice) => handlePriceChange(index, newPrice)}
               onCountChange={(newCount) => handleCountChange(index, newCount)}

@@ -15,6 +15,9 @@ function Found() {
   const navigate = useNavigate();
   console.log(quantities);
   
+  const changeCountity = () => {
+
+  }
 
   const handleQuantityChange = (index, newQuantity) => {
     setQuantities((prev) => ({
@@ -104,14 +107,15 @@ function Found() {
               <p className="font-sans text-[13px]">{elem.title}</p>
               <p className="font-sans text-[13px]">{elem.par}</p>
             </div>
-            <Counter
-              price={+elem.text}
-              onPriceChange={(newPrice) => handleQuantityChange(index, newPrice / elem.text)}
-              onRemove={() => handleRemoveItem(index)}
-              isMetr={elem.isMetr}
-              initialCounter={elem.isMetr ? +filters?.metr.replace(',', '.') : 1}
+<Counter
+    price={+elem.text}
+    onPriceChange={(newPrice) => handleQuantityChange(index, newPrice / elem.text)}
+    onRemove={() => handleRemoveItem(index)}
+    isMetr={elem.isMetr}
+    initialCounter={elem.isMetr ? +filters?.metr.replace(',', '.') : 1}
+    changeCountity={(newCount) => handleQuantityChange(index, newCount)}
+/>
 
-            />
           </div>
         </div>
       ))}
